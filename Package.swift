@@ -10,6 +10,12 @@ let package = Package(
         .library(
             name: "libraryExample",
             targets: ["libraryExample"]),
+        .library(
+            name: "libraryButton",
+            targets: ["libraryButton"]),
+        .library(
+            name: "librarySlider",
+            targets: ["librarySlider"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,6 +27,15 @@ let package = Package(
         .target(
             name: "libraryExample",
             dependencies: []),
+        .target(
+            name: "libraryButton",
+            dependencies: []),
+        .target(
+            name: "librarySlider",
+            dependencies: []),
+        
+        
+        // testing targets
         .testTarget(
             name: "libraryExampleTests",
             dependencies: ["libraryExample"]),
