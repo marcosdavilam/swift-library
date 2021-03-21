@@ -25,12 +25,25 @@ public struct libraryButton: View {
         
 
             if showDetails {
-                Text("You should follow me on Twitter: @twostraws")
+                Text(SomeService.sharedInstance.subtitle())
                     .font(.largeTitle)
             }
         }
     }
     
+}
+
+class SomeService {
+    
+    public func subtitle() -> String {
+        return "texto que viene desde el servicio"
+    }
+  static let sharedInstance : SomeService = {
+    //Do any computations needed to have the args for SomeService initializer, if not you can omit this closure and directly assign SomeService() to sharedInstance
+    return SomeService() //<--Call the designated initialiser to instantiate the object.
+    }()
+
+   //Other methods of the class....
 }
 
 
