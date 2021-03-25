@@ -22,7 +22,7 @@ private var position: Int
         self.position = position
 }
 
-    var body: some View {
+    public var body: some View {
         Image(self.images[self.position])
         .resizable()
         .edgesIgnoringSafeArea(.all)
@@ -62,7 +62,7 @@ public struct ProgressView: View {
         self.progress = progress
     }
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Rectangle()
