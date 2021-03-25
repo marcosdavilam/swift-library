@@ -29,7 +29,7 @@ class StoriesService {
 //componente de imagenes fullscreen
 
 @available(iOS 13.0, *)
-struct StoryImages: View {
+struct libraryStories: View {
     
 private var images: [String]
 private var width: CGFloat
