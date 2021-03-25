@@ -46,7 +46,7 @@ public class StoriesService {
         self.subject?.dispose()
     }
     
-  static let sharedInstance : StoriesService = StoriesService()
+  public static let sharedInstance : StoriesService = StoriesService()
 
 }
 
@@ -83,7 +83,7 @@ public struct ProgressView: View {
 @available(iOS 13.0, *)
 public class StoryTimer: ObservableObject {
     
-    @Published var progress: Double
+    @Published public var progress: Double
     
     private var interval: TimeInterval
     private var max: Int
@@ -98,7 +98,7 @@ public class StoryTimer: ObservableObject {
         self.service = StoriesService.sharedInstance
     }
     
-    func start() {
+    public func start() {
         self.publisher = Timer.publish(every: 0.1, on: .main, in: .default)
         self.cancellable = self.publisher.autoconnect().sink(receiveValue: {  _ in
             var newProgress = self.progress + (0.1 / self.interval)
@@ -110,12 +110,12 @@ public class StoryTimer: ObservableObject {
         })
     }
     
-    func cancel() {
+    public func cancel() {
         self.progress = 0
         self.cancellable?.cancel()
     }
     
-    func advance(by number: Int) {
+   public func advance(by number: Int) {
         var newProgress = (Int(self.progress) + number)
         if (Int(newProgress) >= self.max || Int(newProgress) < 0) {
             self.service.goBack()
