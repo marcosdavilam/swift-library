@@ -34,7 +34,7 @@ private var position: Int
 }
 
 public class StoriesService {
-    var subject: PublishSubject<Bool>? = nil
+    public var subject: PublishSubject<Bool>? = nil
 
     public func start() {
         self.subject = PublishSubject<Bool>()
@@ -56,7 +56,7 @@ public class StoriesService {
 
 @available(iOS 13.0, *)
 public struct ProgressView: View {
-    var progress: CGFloat
+    public var progress: CGFloat
     
     public init(progress: CGFloat) {
         self.progress = progress
@@ -90,7 +90,7 @@ public class StoryTimer: ObservableObject {
     private var publisher: Timer.TimerPublisher
     private var cancellable: Cancellable?
     var service: StoriesService
-    init(items: Int, interval: TimeInterval) {
+    public init(items: Int, interval: TimeInterval) {
         self.max = items
         self.progress = 0
         self.interval = interval
