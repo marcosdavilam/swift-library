@@ -9,27 +9,8 @@ import SwiftUI
 import Combine
 import RxSwift
 
-class StoriesService {
-    var subject: PublishSubject<Bool>? = nil
-
-    public func start() {
-        self.subject = PublishSubject<Bool>()
-        self.subject?.onNext(true)
-    }
-    
-    public func goBack() {
-        self.subject?.onNext(false)
-        self.subject?.dispose()
-    }
-    
-  static let sharedInstance : StoriesService = StoriesService()
-
-}
-
-//componente de imagenes fullscreen
-
 @available(iOS 13.0, *)
-struct libraryStories: View {
+public struct libraryStories: View {
     
 private var images: [String]
 private var width: CGFloat
@@ -52,10 +33,29 @@ private var position: Int
     
 }
 
+public class StoriesService {
+    var subject: PublishSubject<Bool>? = nil
+
+    public func start() {
+        self.subject = PublishSubject<Bool>()
+        self.subject?.onNext(true)
+    }
+    
+    public func goBack() {
+        self.subject?.onNext(false)
+        self.subject?.dispose()
+    }
+    
+  static let sharedInstance : StoriesService = StoriesService()
+
+}
+
+//componente de imagenes fullscreen
+
 // barritas de progreso
 
 @available(iOS 13.0, *)
-struct ProgressView: View {
+public struct ProgressView: View {
     var progress: CGFloat
     
     public init(progress: CGFloat) {
@@ -81,7 +81,7 @@ struct ProgressView: View {
 // tiempo de animacion clase
 
 @available(iOS 13.0, *)
-class StoryTimer: ObservableObject {
+public class StoryTimer: ObservableObject {
     
     @Published var progress: Double
     
